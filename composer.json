@@ -1,6 +1,9 @@
 {
     "name": "waset/short-video-distribution",
     "description": "国内最全的短视频平台SDK",
+    "version": "0.0.1",
+    "type": "library",
+    "homepage": "https://github.com/waset/short-video-distribution",
     "keywords": [
         "douyin",
         "抖音",
@@ -26,11 +29,19 @@
         }
     ],
     "require": {
-        "php": ">=8.0.0"
+        "php": ">=8.0.0",
+        "topthink/framework": "^6.0.0"
     },
     "autoload": {
       "psr-4": {
         "Distribute\\": "src/"
       }
+    },
+    "extra": {
+        "think": {
+            "config": {
+                "distribute": "config/config.php"
+            }
+        }
     }
 }
