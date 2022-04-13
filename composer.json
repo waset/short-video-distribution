@@ -1,8 +1,9 @@
 {
     "name": "waset/short-video-distribution",
     "description": "国内最全的短视频平台SDK",
-    "version": "0.0.1",
+    "version": "0.0.1-dev",
     "type": "library",
+    "minimum-stability": "dev",
     "homepage": "https://github.com/waset/short-video-distribution",
     "keywords": [
         "douyin",
