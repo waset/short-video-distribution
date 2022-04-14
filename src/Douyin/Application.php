@@ -38,6 +38,13 @@ class Application extends BaseApi
     public string $client_secret = '';
 
     /**
+     * 用户唯一标志
+     *
+     * @var string
+     */
+    public string $open_id = '';
+
+    /**
      * 构造函数
      *
      * @param array $config
@@ -47,6 +54,7 @@ class Application extends BaseApi
         $this->config = $config;
         $this->client_key = $config['client_key'];
         $this->client_secret = $config['client_secret'];
+        $this->open_id = $config['open_id'] ?? '';
     }
 
     /**
