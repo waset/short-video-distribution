@@ -32,15 +32,58 @@ composer require waset/short-video-distribution
 ```php
 // config/distribute.php
 <?php
-
+// 因各平台使用 scope 不一致，所以还是单独定义吧，不会太麻烦，毕竟只定这一次
 return [
-    // 字节跳动(适用于抖音、头条、西瓜)
-    "bytedance" =>  [
-        "client_key"    =>  "",
-        "client_secret" =>  "",
+    // 抖音
+    "douyin" => [
+        'client_key' => '',
+        'client_secret' => '',
+        'scope' => [
+            'trial.whitelist',,
+            'user_info',
+            // ...
+        ]
+    ],
+    // 头条
+    "toutiao" => [
+        'client_key' => '',
+        'client_secret' => '',
+        'scope' => [
+            'user_info',
+            // ...
+        ]
+    ],
+    //  西瓜
+    "xigua" => [
+        'client_key' => '',
+        'client_secret' => '',
+        'scope' => [
+            'user_info',
+            // ...
+        ]
     ],
     // ...
 ];
+
+
+```
+
+#### 使用
+
+```php
+use Waset\Distribute;
+
+// 获取绑定链接（结果是 url，如有需要自行生成二维码）
+// TODO:本插件提供二维码生成方法？
+$code =  Distribute::app($model)->oauth()->code($scope, $redirect_uri, $state);
+
+// 获取token
+$data =  Distribute::app($model)->oauth()->token($code);
+// $data = $data->toArray();
+
+// 获取用户信息
+$user_info =  Distribute::app($model)->user()->info($data['access_token'], $data['open_id']);
+// $user_info = $user_info->toArray();
 
 ```
 
