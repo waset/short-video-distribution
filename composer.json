@@ -1,7 +1,7 @@
 {
     "name": "waset/short-video-distribution",
     "description": "国内最全的短视频平台SDK",
-    "version": "0.0.2-dev",
+    "version": "0.0.4",
     "type": "library",
     "minimum-stability": "dev",
     "homepage": "https://github.com/waset/short-video-distribution",
