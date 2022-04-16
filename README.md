@@ -30,7 +30,7 @@ composer require waset/short-video-distribution
 #### 配置
 
 ```php
-// config/distribute.php
+// config/distribute.php (ThinkPHP6 会自动生成)
 <?php
 // 因各平台使用 scope 不一致，所以还是单独定义吧，不会太麻烦，毕竟只定这一次
 return [
@@ -44,28 +44,24 @@ return [
             // ...
         ]
     ],
-    // 头条
-    "toutiao" => [
-        'client_key' => '',
-        'client_secret' => '',
-        'scope' => [
-            'user_info',
-            // ...
-        ]
-    ],
-    //  西瓜
-    "xigua" => [
-        'client_key' => '',
-        'client_secret' => '',
-        'scope' => [
-            'user_info',
-            // ...
-        ]
-    ],
     // ...
+
+    // "平台名" => [
+    //     '密钥' => '',
+    //     '密码' => '',
+    //     '权限' => [
+    //         ...
+    //     ]
+    // ],
 ];
+```
 
+#### 平台 => `$model`
 
+```
+抖音 => 'douyin'
+今日头条 => 'toutiao'
+西瓜视频 => 'xigua'
 ```
 
 #### 使用
@@ -84,7 +80,6 @@ $data =  Distribute::app($model)->oauth()->token($code);
 // 获取用户信息
 $user_info =  Distribute::app($model)->user()->info($data['access_token'], $data['open_id']);
 // $user_info = $user_info->toArray();
-
 ```
 
 # 鸣谢
