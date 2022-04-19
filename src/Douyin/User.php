@@ -17,6 +17,9 @@ class User extends Application
             'access_token' => $access_token,
             'open_id' => $openid
         ];
-        return $this->https_get($api_url, $params);
+
+        $res = $this->https_get($api_url, $params)->toArray();
+
+        return $res['data'];
     }
 }

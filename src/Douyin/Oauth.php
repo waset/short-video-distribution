@@ -30,7 +30,9 @@ class Oauth extends Application
             'grant_type' => 'authorization_code'
         ];
 
-        return $this->https_post($api_url, $params);
+        $res = $this->https_post($api_url, $params)->toArray();
+
+        return $res['data'];
     }
 
     /**
@@ -53,7 +55,10 @@ class Oauth extends Application
             'client_secret' => $this->client_secret,
             'refresh_token' => $refresh_token
         ];
-        return $this->https_post($api_url, $params);
+
+        $res = $this->https_post($api_url, $params)->toArray();
+
+        return $res['data'];
     }
 
     /**
@@ -76,7 +81,10 @@ class Oauth extends Application
             'client_secret' => $this->client_secret,
             'refresh_token' => $refresh_token
         ];
-        return $this->https_post($api_url, $params);
+
+        $res = $this->https_post($api_url, $params)->toArray();
+
+        return $res['data'];
     }
 
     /**
@@ -99,7 +107,10 @@ class Oauth extends Application
             'client_secret' => $this->client_secret,
             'grant_type' => 'client_credential'
         ];
-        return $this->https_post($api_url, $params);
+
+        $res = $this->https_post($api_url, $params)->toArray();
+
+        return $res['data'];
     }
 
     /**

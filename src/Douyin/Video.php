@@ -27,6 +27,8 @@ class Video extends Application
             "count" => $count
         ];
 
-        return $this->https_get($api_url, $params, $headers);
+        $res = $this->https_get($api_url, $params, $headers)->toArray();
+
+        return $res['data'];
     }
 }
