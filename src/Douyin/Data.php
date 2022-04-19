@@ -23,7 +23,10 @@ class Data extends Application
             'open_id' => $openid,
             "date_type" => 30
         ];
-        return $this->https_get($api_url, $params, $headers);
+
+        $res = $this->https_get($api_url, $params, $headers)->toArray();
+
+        return $res['data'];
     }
 
     /**
@@ -45,7 +48,10 @@ class Data extends Application
             'open_id' => $openid,
             "date_type" => 30
         ];
-        return $this->https_get($api_url, $params, $headers);
+
+        $res = $this->https_get($api_url, $params, $headers)->toArray();
+
+        return $res['data'];
     }
 
     /**
@@ -67,7 +73,10 @@ class Data extends Application
             'open_id' => $openid,
             "date_type" => 30
         ];
-        return $this->https_get($api_url, $params, $headers);
+
+        $res = $this->https_get($api_url, $params, $headers)->toArray();
+
+        return $res['data'];
     }
 
     /**
@@ -89,7 +98,10 @@ class Data extends Application
             'open_id' => $openid,
             "date_type" => 30
         ];
-        return $this->https_get($api_url, $params, $headers);
+
+        $res = $this->https_get($api_url, $params, $headers)->toArray();
+
+        return $res['data'];
     }
 
     /**
@@ -111,7 +123,10 @@ class Data extends Application
             'open_id' => $openid,
             "date_type" => 30
         ];
-        return $this->https_get($api_url, $params, $headers);
+
+        $res = $this->https_get($api_url, $params, $headers)->toArray();
+
+        return $res['data'];
     }
 
     /**
@@ -133,6 +148,9 @@ class Data extends Application
             'open_id' => $openid,
             "date_type" => 30
         ];
-        return $this->https_get($api_url, $params, $headers);
+
+        $res = $this->https_get($api_url, $params, $headers)->toArray();
+
+        return $res['data'];
     }
 }

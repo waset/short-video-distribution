@@ -1,6 +1,6 @@
 <?php
 
-namespace Waset\Toutiao;
+namespace Waset\Kuaishou;
 
 class User extends Application
 {
@@ -18,8 +18,8 @@ class User extends Application
             'open_id' => $openid
         ];
 
-        $res = $this->https_get($api_url, $params)->toArray();
+        $res = $this->https_post($api_url, $params)->toArray();
 
-        return $res['data'];
+        return $res['user_info'] ?? throw new \Exception("快手获取用户失败", 1);;
     }
 }
