@@ -7,19 +7,19 @@ class User extends Application
     /**
      * 获取用户信息
      * @param string $access_token
-     * @param string $openid
+     * @param string $app_id
      * @return User
      */
-    public function info($access_token, $openid)
+    public function info($access_token)
     {
-        $api_url = self::BaseUrl . '/oauth/userinfo/';
+        $api_url = self::BaseUrl . '/openapi/user_info/';
         $params = [
             'access_token' => $access_token,
-            'open_id' => $openid
+            'app_id' => $this->app_id,
         ];
 
-        $res = $this->https_post($api_url, $params)->toArray();
+        $res = $this->https_get($api_url, $params)->toArray();
 
-        return $res['user_info'] ?? throw new \Exception("快手获取用户失败", 1);;
+        return $res['user_info'] ?? throw new \Exception("获取授权信息失败", 1);
     }
 }

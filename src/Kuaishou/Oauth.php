@@ -37,7 +37,9 @@ class Oauth extends Application
             $params['state'] = $state;
         }
 
-        return $this->https_url($api_url, $params);
+        $res = $this->https_get($api_url, $params)->toArray();
+
+        return $res['path'] ?? throw new \Exception("授权失败", 1);
     }
 
     /**
