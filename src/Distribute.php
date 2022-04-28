@@ -20,7 +20,6 @@ class Distribute
         $class = "\\Waset\\{$name}\\Application";
 
         $config = array_merge(Config::get("distribute.{$app}", []), $config);
-        if (empty($config)) throw new \Exception("{$app} config is empty");
 
         if (!empty($class) && class_exists($class)) {
             return new $class($config);
