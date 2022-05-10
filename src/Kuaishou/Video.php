@@ -50,7 +50,14 @@ class Video extends Application
     {
         $api_url = "http://${endpoint}/api/upload/multipart?upload_token=${upload_token}";
 
-        return $this->https_byte($api_url, $file);
+        $body = [
+            'file' => new \CURLFile($file),
+        ];
+        $header = [
+            'Content-Type' => 'multipart/form-data',
+        ];
+
+        return $this->https_post($api_url, $body, $header)->toArray();
     }
 
     /**
@@ -127,7 +134,7 @@ class Video extends Application
         $url = $this->https_url($api_url, $params);
         $body = [
             'caption' => $title,
-            'cover' => file_get_contents($cover_images),
+            'cover' => new \CURLFile($cover_images),
         ];
         $res = $this->https_post($url, $body)->toArray();
 
