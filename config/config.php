@@ -1,7 +1,7 @@
 <?php
 
 // +----------------------------------------------------------------------
-// | 平台配置
+// | 抖音配置
 // +----------------------------------------------------------------------
 
 return [
@@ -11,7 +11,7 @@ return [
         'client_secret' => env('douyin.client_secret', ''),
         'scope'         => env('douyin.scope', [
             'trial.whitelist',
-            'user_info',
+            'data.external.item',
             // ...
         ]),
     ],
@@ -33,4 +33,22 @@ return [
             // ...
         ])
     ],
+    // 快手
+    "kuaishou" => [
+        'app_id'        => env('kuaishou.app_id', ''),
+        'app_secret'    => env('kuaishou.app_secret', ''),
+        "scope"         => env('kuaishou.scope', [
+            "user_base",
+            // ...
+        ])
+    ],
+    // 哔哩哔哩
+    "bilibili" => [
+        'client_id'    => env('bilibili.client_id', ''),
+        'client_secret' => env('bilibili.client_secret', ''),
+        "scope"         => env('bilibili.scope', [
+            "USER_INFO",
+            // ...
+        ])
+    ]
 ];
