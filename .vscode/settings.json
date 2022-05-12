@@ -1,3 +1,9 @@
 {
-  "conventionalCommits.scopes": ["kernel", "haokan", "kuaishou", "vscode"]
+  "conventionalCommits.scopes": [
+    "kernel",
+    "haokan",
+    "kuaishou",
+    "vscode",
+    "bilibili"
+  ]
 }
